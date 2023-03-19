@@ -235,8 +235,9 @@ myStartupHook = spawnOnce "nohup barrier &"
                 >> spawnOnce "emacsclient -c -a 'emacs'"
                 >> spawnOnce "nitrogen --set-scaled --random ~/Desktop/wallpaper &"
                 >> spawnOnce "compton &"
-                >> spawnOnce "xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal && xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --above eDP-1-1 --rotate normal"
-
+                >> spawnOnce "xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal && xrandr --output HDMI-0 --mode 1680x1050 --pos 0x0 --above eDP-1-1 --rotate normal"
+                -- room2 layout:
+               -- >> spawnOnce "xrandr --output DP-4 --primary --mode 1920x1080 --pos 0x0 --rotate normal && xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --above DP-4 --rotate normal"
 
 
 ------------------------------------------------------------------------
@@ -244,8 +245,14 @@ myStartupHook = spawnOnce "nohup barrier &"
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = do      
+main = do
+    -- Start the Emacs daemon
+    spawn "/usr/bin/emacs --daemon"
+
+    -- Start xmobar
     xmproc <- spawnPipe "xmobar /home/devid/.config/xmobar/xmobarrc -x 0"
+
+    -- Start XMonad with docks support
     xmonad $ docks defaults
 
 
