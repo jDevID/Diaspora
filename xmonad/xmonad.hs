@@ -233,9 +233,10 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = spawnOnce "nohup barrier &"
                 >> spawnOnce "emacsclient -c -a 'emacs'"
-                >> spawnOnce "nitrogen --set-scaled --random ~/Desktop/wallpaper &"
+                >> spawnOnce "nitrogen --set-scaled ~/Desktop/wallpaper/linux.png --head=0 --save && nitrogen --set-scaled --random ~/Desktop/wallpaper/concept.png --head=1 --save && nitrogen --restore"
                 >> spawnOnce "compton &"
                 >> spawnOnce "xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal && xrandr --output HDMI-0 --mode 1680x1050 --pos 0x0 --above eDP-1-1 --rotate normal"
+                                                                                                                                                                --left-of
                 -- room2 layout:
                -- >> spawnOnce "xrandr --output DP-4 --primary --mode 1920x1080 --pos 0x0 --rotate normal && xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --above DP-4 --rotate normal"
 
