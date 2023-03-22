@@ -54,6 +54,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_f), spawn "firefox")
     , ((modm, xK_b), spawn "brave-browser")
 
+    -- brightness ctrl + Left/Right
+    , ((controlMask, xK_Right), spawn "/home/devid/project/Diaspora/bash/keyBrightness.sh +")
+    , ((controlMask, xK_Left), spawn "/home/devid/project/Diaspora/bash/keyBrightness.sh -")
+    -- sound ctrl + Down/Up
+    , ((controlMask, xK_Up), spawn "/home/devid/project/Diaspora/bash/keySound.sh +")
+    , ((controlMask, xK_Down), spawn "/home/devid/project/Diaspora/bash/keySound.sh -")
 ------------------------------------------
     -- launch dmenu
     , ((modm, xK_p     ), spawn "dmenu_run")
