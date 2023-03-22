@@ -125,6 +125,7 @@ if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 
+xbindkeys
 setxkbmap fr
 neofetch 
 alias note="emacsclient -c -a 'emacs'"
@@ -136,3 +137,9 @@ alias pgStart='sudo systemctl start postgresql && pgStatus'
 alias pgStop='sudo systemctl stop postgresql && pglStatus'
 alias barrier='flatpak run com.github.debauchee.barrier'
 alias emacs="emacsclient -c -a 'emacs'"ㅤ
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
